@@ -56,11 +56,17 @@ function removeArticle (band) {
     return newBand
 }
 
-
 const sortedArray = bands.sort( (prevBand, nextBand) => {
   return removeArticle(prevBand) > removeArticle(nextBand) ? 1 : -1
 })
 console.log(`sortedArray`, sortedArray)
+
+const domRoot = document.querySelector('#bands')
+domRoot.innerHTML = sortedArray.map ( el => {
+  return `
+  <li>${el}</li>
+  `
+}).join('')
 
 
 </script>
